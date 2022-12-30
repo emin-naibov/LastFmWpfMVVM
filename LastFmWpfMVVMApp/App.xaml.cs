@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using LastFmWpfMVVMApp.Services;
 using LastFmWpfMVVMApp.ViewModels;
 using SimpleInjector;
@@ -17,7 +18,7 @@ namespace LastFmWpfMVVMApp
     /// </summary>
     public partial class App : Application
     {
-        public Container Services { get; set; }
+        public static Container Services { get; set; }
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -28,6 +29,7 @@ namespace LastFmWpfMVVMApp
         {
             Services = new Container();
 
+            Services.RegisterSingleton<IMessenger, Messenger>();
             Services.Register<IArtistSearchApiClient, ArtistSearchApiClient>();
             Services.Register<HomeViewModel>();
             Services.Register<DetailsViewModel>();
