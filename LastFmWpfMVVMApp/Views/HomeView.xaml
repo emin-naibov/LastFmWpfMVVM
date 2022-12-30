@@ -7,6 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <DockPanel>
+            <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="20" FontWeight="Bold">Artist Search</TextBlock>
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0" Text="{Binding Name}"></TextBox>
+                <Button Grid.Column="1" Command="{Binding SearchCommand}">Search</Button>
+            </Grid>
+            <ListBox ItemsSource="{Binding Artists}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+
     </Grid>
 </UserControl>

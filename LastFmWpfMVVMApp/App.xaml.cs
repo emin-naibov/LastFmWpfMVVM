@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using LastFmWpfMVVMApp.Services;
 using LastFmWpfMVVMApp.ViewModels;
 using SimpleInjector;
 using System;
@@ -27,10 +28,10 @@ namespace LastFmWpfMVVMApp
         {
             Services = new Container();
 
-            //Services.RegisterSingleton<IArtistSearchApiClient, ArtistSearchApiClient>();
-            Services.RegisterSingleton<HomeViewModel>();
-            Services.RegisterSingleton<DetailsViewModel>();
-            Services.RegisterSingleton<MainViewModel>();
+            Services.Register<IArtistSearchApiClient, ArtistSearchApiClient>();
+            Services.Register<HomeViewModel>();
+            Services.Register<DetailsViewModel>();
+            Services.Register<MainViewModel>();
 
             Services.Verify();
         }
