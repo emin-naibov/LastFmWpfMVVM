@@ -23,7 +23,7 @@ namespace LastFmWpfMVVMApp.Services
         {
             try
             {
-                MessageBox.Show(search_artist);
+                //MessageBox.Show(search_artist);
                 var json = _webClient.DownloadString($"{_apiUrl}method=artist.search&artist={search_artist}&api_key={_appKey}&format=json");
                 var HomeViewArtists = JsonSerializer.Deserialize<Artists>(json,
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
@@ -41,18 +41,10 @@ namespace LastFmWpfMVVMApp.Services
         {
             try
             {
-                MessageBox.Show(search_artist);
+                //MessageBox.Show(search_artist);
                 var json = _webClient.DownloadString($"{_apiUrl}method=artist.getinfo&artist={search_artist}&api_key={_appKey}&format=json");
-                if (json is null)
-                {
-                    MessageBox.Show("hey 0");
-                }
                 var similarArtists = JsonSerializer.Deserialize<Artist_with_sim_Artists>(json,
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                if (similarArtists is null)
-                {
-                    MessageBox.Show("hey 0 ou");
-                }
                 return similarArtists.artist;
             }
             catch (Exception ex)

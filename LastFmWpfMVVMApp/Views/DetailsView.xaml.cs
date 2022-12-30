@@ -22,5 +22,6 @@ namespace LastFmWpfMVVMApp.Views
         {
             InitializeComponent();
         }
+
     }
 }

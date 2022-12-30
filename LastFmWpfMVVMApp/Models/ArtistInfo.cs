@@ -38,13 +38,15 @@ namespace LastFmWpfMVVMApp.Models
 
     public class Artist1
     {
-        public string name { get; set; }
+        [JsonPropertyName("name")]
+        public string Sim_Name { get; set; }
         public string url { get; set; }
         public Image_with_Info[] image { get; set; }
     }
 
     public class Image_with_Info
     {
+        [JsonPropertyName("#text")]
         public string text { get; set; }
         public string size { get; set; }
     }
