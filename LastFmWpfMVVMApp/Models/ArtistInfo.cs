@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace LastFmWpfMVVMApp.Models
 {
@@ -81,6 +82,7 @@ namespace LastFmWpfMVVMApp.Models
 
     public class Image1
     {
+        [JsonPropertyName("#text")]
         public string text { get; set; }
         public string size { get; set; }
     }

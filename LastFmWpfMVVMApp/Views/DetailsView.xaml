@@ -22,16 +22,16 @@
         </ListBox>
         <StackPanel>
             <Grid Height="100">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Image Grid.Column="0"/>
-                <UniformGrid Grid.Column="1" Rows="2">
-                    <TextBlock Text="{Binding Listeners,StringFormat=Listeners:{0}}"/>
-                    <TextBlock Text="{Binding Playcount,StringFormat=Playcount:{0}}"/>
-                </UniformGrid>
-            </Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="200"/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Image Source="{Binding Image}" Grid.Column="0"/>
+    <UniformGrid Margin="20" Grid.Column="1" Rows="2">
+        <TextBlock Text="{Binding Listeners,StringFormat=Listeners:{0}}"/>
+        <TextBlock Text="{Binding Playcount,StringFormat=Playcount:{0}}"/>
+    </UniformGrid>
+</Grid>
             <TextBlock Height="30" FontSize="15">Bio:</TextBlock>
             <TextBlock Height="130" Text="{Binding Bio}" TextWrapping="Wrap"/>
             <TextBlock Height="30" FontSize="15">Similiar Artists:</TextBlock>
@@ -40,3 +40,23 @@
 
     </DockPanel>
 </UserControl>
+
+<!--<Grid Height="100">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="50"/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Image Source="{Binding Image}" Grid.Column="0"/>
+    <UniformGrid Margin="" Grid.Column="1" Rows="2">
+        <TextBlock Text="{Binding Listeners,StringFormat=Listeners:{0}}"/>
+        <TextBlock Text="{Binding Playcount,StringFormat=Playcount:{0}}"/>
+    </UniformGrid>
+</Grid>-->
+
+<!--<DockPanel Height="100" LastChildFill="False">
+    <Image DockPanel.Dock="Left" Source="{Binding Image}"/>
+    <UniformGrid DockPanel.Dock="Right" Rows="2">
+        <TextBlock Text="{Binding Listeners,StringFormat=Listeners:{0}}"/>
+        <TextBlock Text="{Binding Playcount,StringFormat=Playcount:{0}}"/>
+    </UniformGrid>
+</DockPanel>-->

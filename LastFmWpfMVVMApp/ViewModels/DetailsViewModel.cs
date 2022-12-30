@@ -47,6 +47,12 @@ namespace LastFmWpfMVVMApp.ViewModels
                 {
                     MessageBox.Show("Errorr!!");
                 }
+                //SimArtists.image.ToString();
+                //foreach (var item in SimArtists.image)
+                //{
+                //    MessageBox.Show(item.text);
+                //}
+                MessageBox.Show(SimArtists.image[0].text);
                 Image = SimArtists.image[0].text;
                 Listeners = SimArtists.stats.listeners;
                 Playcount = SimArtists.stats.playcount;
