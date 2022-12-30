@@ -37,7 +37,33 @@ namespace LastFmWpfMVVMApp.Services
                 return null;
             }
         }
+        public Artist_with_Info GetSimilarArtists(string search_artist)
+        {
+            try
+            {
+                MessageBox.Show(search_artist);
+                var json = _webClient.DownloadString($"{_apiUrl}method=artist.getinfo&artist={search_artist}&api_key={_appKey}&format=json");
+                if (json is null)
+                {
+                    MessageBox.Show("hey 0");
+                }
+                var similarArtists = JsonSerializer.Deserialize<Artist_with_sim_Artists>(json,
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                if (similarArtists is null)
+                {
+                    MessageBox.Show("hey 0 ou");
+                }
+                return similarArtists.artist;
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError("ERROR!!!", ex);
+                //throw;
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
 
-        
+
     }
 }

@@ -47,9 +47,9 @@ namespace LastFmWpfMVVMApp.ViewModels
         public RelayCommand<Artist> DetailsCommand => _detailsCommand ??= new RelayCommand<Artist>(
             param =>
             {
-                //_messenger.Send(new ArtistDetailsMessage { Artist = param });
-                _messenger.Send(new NavigationMessage { ViewModelType = typeof(DetailsViewModel) });
                 //MessageBox.Show(param.name);
+                _messenger.Send(new NavigationMessage { ViewModelType = typeof(DetailsViewModel) });
+                 _messenger.Send(new ArtistDetailsMessage { Artist = param });
             }
         );
     }
